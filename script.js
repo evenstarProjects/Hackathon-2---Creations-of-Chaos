@@ -11,6 +11,22 @@ helpButton.addEventListener("click", () => {
   helpDialog.showModal();
 });
 
+// Tickable Check boxes on the To Do list
+const checkSound = new Audio("Sounds/gandalfISupposeYouThinkThatWasClever.mp3");
+
+const toDoList = document.querySelector(".toDoListUl");
+
+toDoList.addEventListener("click", function (ev) {
+  if (ev.target.tagName === "LI") {
+    ev.target.classList.toggle("checked");
+
+    // Play sound when checking
+    if (ev.target.classList.contains('checked')) {
+      checkSound.currentTime = 0; // rewind so it can play rapidly
+      checkSound.play();
+    }
+  }
+});
 
 
 // Rewiring of keys

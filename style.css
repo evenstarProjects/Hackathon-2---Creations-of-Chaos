@@ -97,7 +97,7 @@ h1 {
 }
 
 #questionMarkCarousel .carousel-inner {
-  transition: width 0.3s ease;
+    transition: width 0.3s ease;
 
 }
 
@@ -141,11 +141,11 @@ h1 {
 }
 
 .carousel-indicators [data-bs-target] {
-  background-color: black;
+    background-color: black;
 }
 
 .carousel-indicators .active {
-  background-color: black;
+    background-color: black;
 }
 
 /* ----- TO DO LIST ----- */
@@ -154,6 +154,59 @@ h1 {
     grid-row-start: 1;
     padding: 1rem;
     margin: 1rem;
-
 }
 
+/* Remove margins and padding from the list */
+.toDoListUl {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the list items */
+.toDoListUl li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    font-size: 18px;
+    transition: 0.2s;
+    list-style-type: none;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.toDoListUl li::before {
+    content: "☐"; /* empty square */
+    font-size: 1.6rem;
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    height: 15px;
+    width: 7px;
+}
+
+/* Darker background-color on hover */
+.toDoListUl li:hover {
+    background: rgb(144, 209, 209);
+}
+
+/* When clicked on, add a background color and strike out text */
+.toDoListUl li.checked {
+    background: rgb(124, 185, 185);
+    color: #fff;
+    text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+.toDoListUl li.checked::before {
+    content: "☑";
+    font-size: 1.6rem;
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    height: 15px;
+    width: 7px;
+}
