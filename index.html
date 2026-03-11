@@ -22,10 +22,12 @@
 
 <body>
     
+    <!-- HEADER -->
     <header>
         <h1>Chaos</h1>
     </header>
 
+    <!-- MAIN -->
     <main>
         <div class="grid-container">
 
@@ -116,6 +118,14 @@
                 
                 <form name="Riddles" legend="Solve the Riddles" id="riddleForm">
 
+                    <audio id="wrongSound">
+                        <source src="Sounds/stupidFatHobbit.mp3" type="audio/mpeg">
+                    </audio>
+
+                    <audio id="correctSound">
+                        <source src="Sounds/pohTayToes.mp3" type="audio/mpeg">
+                    </audio>
+
                     <div class="riddleBlock" id="riddle1">
                         <p>
                             What has roots as nobody sees,<br>
@@ -124,6 +134,8 @@
                             And yet never grows?
                         </p>
                         <input type="text" id="riddleBox1">
+                        <span class="wrongMark" id="wrong1">✖</span>
+                        <span class="rightMark" id="right1">✔</span>
                         <button type="button" onclick="checkRiddle(1)">Submit</button>
                     </div>
 
@@ -137,6 +149,8 @@
                             Then they stand still.
                         </p>
                         <input type="text" id="riddleBox2">
+                        <span class="wrongMark" id="wrong2">✖</span>
+                        <span class="rightMark" id="right2">✔</span>                        
                         <button type="button" onclick="checkRiddle(2)">Submit</button>
                     </div>
 
@@ -150,6 +164,8 @@
                             Mouthless mutters.
                         </p>
                         <input type="text" id="riddleBox3">
+                        <span class="wrongMark" id="wrong3">✖</span>
+                        <span class="rightMark" id="right3">✔</span>                        
                         <button type="button" onclick="checkRiddle(3)">Submit</button>
                     </div>
 
@@ -161,6 +177,8 @@
                             Yet golden treasure inside is hid.
                         </p>
                         <input type="text" id="riddleBox4">
+                        <span class="wrongMark" id="wrong4">✖</span>
+                        <span class="rightMark" id="right4">✔</span>                        
                         <button type="button" onclick="checkRiddle(4)">Submit</button>
                     </div>
 
@@ -176,6 +194,8 @@
                             And beats high mountain down.
                         </p>
                         <input type="text" id="riddleBox5">
+                        <span class="wrongMark" id="wrong5">✖</span>
+                        <span class="rightMark" id="right5">✔</span>                        
                         <button type="button" onclick="checkRiddle(5)">Submit</button>
                     </div>
 
@@ -186,6 +206,8 @@
                             What have I got in my pocket?
                         </p>
                         <input type="text" id="riddleBox6">
+                        <span class="wrongMark" id="wrong6">✖</span>    
+                        <span class="rightMark" id="right6">✔</span>                   
                         <button type="button" onclick="checkRiddle(6)">Submit</button>
                     </div>
 
@@ -194,9 +216,8 @@
         </div>
     </main>
 
-    <footer>
-
-    </footer>
+    <!-- FOOTER -->
+    <footer></footer>
 
     <!--JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

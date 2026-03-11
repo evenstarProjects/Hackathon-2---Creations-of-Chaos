@@ -235,3 +235,34 @@ h1 {
     overflow: hidden;
     pointer-events: none;
 }
+
+.wrongMark, .rightMark {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.wrongMark {
+    color: red;
+}
+
+.rightMark {
+    color: green;
+}
+
+.visible {
+    opacity: 1;
+}
+
+
+/* ----- FOOTER ----- */
+footer {
+    background-color: rgb(189, 238, 238);
+    padding: 1rem;
+}
+
+/* ----- RING CHASE ----- */
+
+
+/* ----- SAURON JUMPSCARE ----- */
