@@ -210,3 +210,28 @@ h1 {
     height: 15px;
     width: 7px;
 }
+
+/* ----- HOBBIT RIDDLES ----- */
+.hobbitRiddleTask {
+    grid-column: 1 /  13;
+    grid-row-start: 2;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.riddleH3 {
+    margin-bottom: 1.5rem;
+}
+
+.riddleBlock {
+    margin-bottom: 2rem;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+.hidden {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
