@@ -1,0 +1,48 @@
+/* ----- GLOBAL RESET ----- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ----- BODY ----- */
+body {
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    padding: 0;
+    line-height: 1.5;
+    /* FONTS */
+    font-size: 1.25rem;
+    color: rgb(61, 63, 65);
+}
+
+
+/* ----- ELEMENT FORMATTING ----- */
+img, picture, video, canvas, svg, iframe {
+    display: block;
+    max-width: 100%;
+}
+
+audio {
+    display: block;
+    width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
