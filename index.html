@@ -10,10 +10,13 @@
     <meta name="author" content="Bhnhp Qdstshy">
     <title>Chaos</title>
 
-    <!--FONTS AND STYLES-->
+    <!--FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <!--STYLES -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,11 +26,50 @@
         <h1>Chaos Quiz</h1>
     </header>
 
-    <nav>
-
-    </nav>
-
     <main>
+
+        <!--HELP QUESTION MARK BUTTON-->
+        <button class="questionMarkButton">&quest;</button>
+
+        <dialogue>
+
+            <!--CAROUSEL-->
+            <div id="questionMarkCarousel" class="carousel slide">
+
+                <!--Carousel Slide Indicator Dots-->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="2"></button>
+                </div>
+
+                <!--Carousel Slide Contents-->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <h2>Hint 1</h2>
+                        <p>Detail hint 1.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h2>Hint 2</h2>
+                        <p>Detail hint 2.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h2>Hint 3</h2>
+                        <p>Detail hint 3.</p>
+                    </div>
+                </div>
+
+                <!--Left/Right Buttons-->
+                <button class="carousel-control-prev" type="button" data-bs-target="#questionMarkCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#questionMarkCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+
+            </div>
+
+        </dialogue>
 
     </main>
 
@@ -35,6 +77,8 @@
 
     </footer>
 
+    <!--JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 
 </body>
