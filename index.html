@@ -23,54 +23,82 @@
 <body>
     
     <header>
-        <h1>Chaos Quiz</h1>
+        <h1>Chaos</h1>
     </header>
 
     <main>
+        <div class="grid-container">
 
-        <!--HELP QUESTION MARK BUTTON-->
-        <button class="questionMarkButton">&quest;</button>
+            <button class="questionMarkButton" id="questionMarkButton">&quest;</button>
 
-        <dialogue>
+            <dialog class="carouselDialog" id="helpDialog">
 
-            <!--CAROUSEL-->
-            <div id="questionMarkCarousel" class="carousel slide">
+                <button class="closeDialog" id="closeDialog" type="button">&otimes;</button>
 
-                <!--Carousel Slide Indicator Dots-->
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="2"></button>
+                <!--CAROUSEL-->
+                <div id="questionMarkCarousel" class="carousel slide">
+
+                    <!--Carousel Slide Indicator Dots-->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="4"></button>
+                        <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="5"></button>
+                        <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="6"></button>
+                        <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="7"></button>
+                        <button type="button" data-bs-target="#questionMarkCarousel" data-bs-slide-to="8"></button>
+                    </div>
+
+                    <!--Carousel Slide Contents-->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <h2>Need a hint?</h2>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>Have you tried tho?</h2>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>Wisdom has been chasing you, but you have always been faster.</h2>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>Oak's words echoed... There's a time and place for everything, but not now.</h2>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>Okay, here's a few actual hints...</h2>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>Hint 1:</h2>
+                            <p>“I came before Gaia”</p>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>Hint 2:</h2>
+                            <p>“A line appears, the order wanes, the family falls, and Jeff Goldblum reigns."</p>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>Hint 3:</h2>
+                            <p>“A line appears, the order wanes, the family falls, and Jeff Goldblum reigns."</p>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>Hint 4:</h2>
+                            <p>Gift given to Kratos by Ares.</p>
+                        </div>                                                                        
+                    </div>
+
+                    <!--Left/Right Buttons-->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#questionMarkCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#questionMarkCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+
                 </div>
 
-                <!--Carousel Slide Contents-->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <h2>Hint 1</h2>
-                        <p>Detail hint 1.</p>
-                    </div>
-                    <div class="carousel-item">
-                        <h2>Hint 2</h2>
-                        <p>Detail hint 2.</p>
-                    </div>
-                    <div class="carousel-item">
-                        <h2>Hint 3</h2>
-                        <p>Detail hint 3.</p>
-                    </div>
-                </div>
+            </dialog>
 
-                <!--Left/Right Buttons-->
-                <button class="carousel-control-prev" type="button" data-bs-target="#questionMarkCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#questionMarkCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-
-            </div>
-
-        </dialogue>
-
+        </div>
     </main>
 
     <footer>

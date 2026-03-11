@@ -58,7 +58,16 @@ h1 {
     padding: 1rem;
 }
 
+/* ----- MAIN ----- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 1rem;
+    margin: 1rem;
+}
+
 .questionMarkButton {
+    grid-column-start: 12;
     float: right;
     padding: 0.5rem;
     margin: 1rem;
@@ -71,8 +80,56 @@ h1 {
 }
 
 /* ----- CAROUSEL ----- */
+#helpDialog {
+    position: fixed;
+    inset: auto;   /* cancels browser's inset: 0 */
+    margin: 0;     /* cancels browser's margin: auto */
 
+    top: 250px;               /* adjust to your layout */
+    right: 100px;              /* adjust to your layout */
 
-.carousel-indicators button {
+    background-color: rgb(160, 224, 224);
+    border-radius: 1rem;
+    padding: 1rem;
+}
 
+.closeDialog {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    float: right;
+    color: black;
+    margin: 1rem;
+    z-index: 999;
+}
+
+/*Carousel Dialogue*/
+
+/*Carousel Indicators*/
+
+/*Carousel Contents*/
+.carousel-item {
+    text-align: center;
+    padding: 2rem;
+}
+
+.carousel-item h2 {
+    font-size: 1.5rem;
+}
+
+.carousel-item p {
+    font-size: 1.2rem;
+}
+
+/*Make Carousel Buttons Black*/
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(1);
+    z-index: 555;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: black;
+}
+
+.carousel-indicators .active {
+  background-color: black;
 }
