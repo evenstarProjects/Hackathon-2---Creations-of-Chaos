@@ -32,21 +32,14 @@ audio {
     width: 100%;
 }
 
-input, button, textarea, select {
+input, textarea, select {
     font: inherit;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
 }
 
 p {
     text-wrap: pretty;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
-}
 
 /* ----- HEADER ----- */
 header {
@@ -68,6 +61,7 @@ h1 {
 
 .questionMarkButton {
     grid-column-start: 12;
+    grid-row-start: 1;
     float: right;
     padding: 0.5rem;
     margin: 1rem;
@@ -93,18 +87,29 @@ h1 {
     padding: 1rem;
 }
 
+/*To fix the weird spacing issues with the X button because .carousel position is set to relative by bootstrap*/
+.carousel {
+    position: static;
+}
+
+#questionMarkCarousel {
+    height: 50%;
+}
+
+#questionMarkCarousel .carousel-inner {
+  transition: width 0.3s ease;
+
+}
+
 .closeDialog {
     background-color: rgba(255, 255, 255, 0);
     border: none;
     float: right;
     color: black;
-    margin: 1rem;
-    z-index: 999;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    z-index: 1000;
 }
-
-/*Carousel Dialogue*/
-
-/*Carousel Indicators*/
 
 /*Carousel Contents*/
 .carousel-item {
@@ -112,7 +117,7 @@ h1 {
     padding: 2rem;
 }
 
-.carousel-item h2 {
+.carousel-item h3 {
     font-size: 1.5rem;
 }
 
@@ -120,10 +125,19 @@ h1 {
     font-size: 1.2rem;
 }
 
+/*Fix the overlapping button situation*/
+.carousel-control-prev, .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 /*Make Carousel Buttons Black*/
 .carousel-control-prev-icon, .carousel-control-next-icon {
     filter: invert(1);
-    z-index: 555;
+    /* height: 100px;
+    width: 50px; */
 }
 
 .carousel-indicators [data-bs-target] {
@@ -133,3 +147,13 @@ h1 {
 .carousel-indicators .active {
   background-color: black;
 }
+
+/* ----- TO DO LIST ----- */
+.toDoList {
+    grid-column: 1 /  4;
+    grid-row-start: 1;
+    padding: 1rem;
+    margin: 1rem;
+
+}
+
