@@ -96,12 +96,69 @@ function checkRiddle(num) {
   }
 }
 
+// AUDIO FOR RING CHASE
+let chaseAudio = [];
+let currentAudioIndex = 0;
+let audioPlaying = false;
+
+function startChaseAudio() {
+  // List of audio files in order
+  chaseAudio = [
+    new Audio("Sounds/gandalfNeverPutItOn.mp3"),
+    new Audio("Sounds/itWantsToBeFound.mp3"),
+    new Audio("Sounds/theRingOfPowerHasAWillOfItsOwn.mp3"),
+    new Audio("Sounds/itEnsnaredANewBearer.mp3"),
+    new Audio("Sounds/itsMineMyOwn.mp3"),
+    new Audio("Sounds/gollumGollum.mp3"),
+    new Audio("Sounds/iWouldUseThisForGood.mp3"),
+    new Audio("Sounds/LegolasItMustBeDestroyed.mp3"),
+    new Audio("Sounds/gandalfOneRingToRuleThemAll.mp3")
+  ];
+
+  currentAudioIndex = 0;
+  audioPlaying = true;
+
+  playNextAudio();
+}
+
+function playNextAudio() {
+  if (!audioPlaying) return;
+    const audio = chaseAudio[currentAudioIndex];
+    if (!audio) return;
+      audio.play();
+      audio.onended = () => {
+        currentAudioIndex++;
+
+        // If we run out of files, loop the last few whispers forever
+        if (currentAudioIndex >= chaseAudio.length) {
+            currentAudioIndex = 2; // loop from whisper1 onward
+        }
+        playNextAudio();
+    };
+}
+
+function stopChaseAudio() {
+  audioPlaying = false;
+
+  // Stop all audio immediately
+  chaseAudio.forEach(a => {
+    a.pause();
+    a.currentTime = 0;
+  });
+}
+
 // RING CHASE
 // this below was copied and pasted and I need to understand it
 function startRingChase() {
   console.log("ring chase has begun!");
+
   const ring = document.getElementById("theOneRing");
   const container = document.getElementById("ringChaseContainer");
+
+  ring.style.display = "block";
+
+  // Start the whisper sequence
+  startChaseAudio();
 
   let ringX = window.innerWidth / 2;
   let ringY = window.innerHeight / 2;
@@ -141,6 +198,11 @@ function startRingChase() {
       vx = 0;
       vy = 0;
       document.body.style.cursor = "none";
+      ring.style.display = "none";
+
+      // Stop all chase audio"
+      stopChaseAudio();
+      playFinalRingAudio();
       return; // stop animation loop
     }
 

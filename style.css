@@ -309,6 +309,7 @@ footer {
 }
 
 #theOneRing {
+    display: none;
     position: absolute;   /* positioned inside the container */
     width: 80px;          /* adjust as needed */
     top: 50%;
