@@ -147,6 +147,26 @@ function stopChaseAudio() {
   });
 }
 
+// END CHASE AUDIO
+function playFinalRingAudio() {
+  const finalAudio = new Audio("Sounds/oneRingToRuleThemAll.mp3");
+  finalAudio.play();
+
+  // When this audio finishes, trigger the GIF
+  finalAudio.onended = () => {
+    showFinalGif();
+  };
+}
+
+// PLAY FINAL GIF
+function showFinalGif() {
+    const overlay = document.getElementById("finalGifOverlay");
+    overlay.style.display = "flex";
+
+    const sfx = new Audio("Sounds/nazgulScreech.mp3");
+    sfx.play();
+}
+
 // RING CHASE
 // this below was copied and pasted and I need to understand it
 function startRingChase() {

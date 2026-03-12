@@ -320,3 +320,21 @@ footer {
 }
 
 /* ----- SAURON JUMPSCARE ----- */
+#finalGifOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+#finalGif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
