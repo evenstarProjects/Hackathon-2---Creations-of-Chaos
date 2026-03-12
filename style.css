@@ -20,6 +20,11 @@ body {
     color: rgb(61, 63, 65);
 }
 
+.fingerCursor {
+    cursor: url("Images/fingerCursor_resized.png") 10 0, pointer;
+    /*change 10 0 to whatever the figures for the tip of my finger is*/
+}
+
 /*Font change*/
 /* When this class is on <body>, everything uses the glitch font */
 .glitchMode {
@@ -171,10 +176,17 @@ h1 {
     background-color: black;
 }
 
+
+/* ----- ANNOTATION BOX ----- */
+.notesBox {
+    grid-column: 1 / 4;
+    grid-row-start: 1;
+}
+
 /* ----- TO DO LIST ----- */
 .toDoList {
-    grid-column: 1 /  4;
-    grid-row-start: 1;
+    grid-column: 1 /  13;
+    grid-row-start: 2;
     padding: 1rem;
     margin: 1rem;
 }
@@ -237,7 +249,7 @@ h1 {
 /* ----- HOBBIT RIDDLES ----- */
 .hobbitRiddleTask {
     grid-column: 1 /  13;
-    grid-row-start: 2;
+    grid-row-start: 3;
     padding: 1rem;
     margin: 1rem;
 }
@@ -286,6 +298,24 @@ footer {
 }
 
 /* ----- RING CHASE ----- */
+#ringChaseContainer {
+    position: fixed;      /* stays in the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;         /* full viewport width */
+    height: 100vh;        /* full viewport height */
+    pointer-events: none; /* so it never blocks clicks */
+    z-index: 9998;
+}
 
+#theOneRing {
+    position: absolute;   /* positioned inside the container */
+    width: 80px;          /* adjust as needed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+}
 
 /* ----- SAURON JUMPSCARE ----- */

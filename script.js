@@ -39,58 +39,139 @@ const answers = {
 };
 
 function checkRiddle(num) {
-    const input = document.getElementById(`riddleBox${num}`).value.trim().toLowerCase();
-    const wrongMark = document.getElementById(`wrong${num}`);
-    const rightMark = document.getElementById(`right${num}`);
+  console.log(num);
+  const input = document.getElementById(`riddleBox${num}`).value.trim().toLowerCase();
+  const wrongMark = document.getElementById(`wrong${num}`);
+  const rightMark = document.getElementById(`right${num}`);
 
-    // Reset marks
-    wrongMark.classList.remove("visible");
-    rightMark.classList.remove("visible");
+  // Reset marks
+  wrongMark.classList.remove("visible");
+  rightMark.classList.remove("visible");
 
-    // Check if answer is in the allowed list
-    const correctAnswers = answers[num];
-    const isCorrect = correctAnswers.includes(input);
+  // Check if answer is in the allowed list
+  const correctAnswers = answers[num];
+  const isCorrect = correctAnswers.includes(input);
 
-    if (isCorrect) {
-        // Show correct green tick
-        rightMark.classList.add("visible");
+  if (isCorrect) {
 
-        // Play correct sound
-        const audio = document.getElementById("correctSound");
-        audio.currentTime = 0;
-        audio.play();
+    // SPECIAL CASE: FINAL RIDDLE
+    if (num === 6) {
+      // Show tick  correct sound
+      rightMark.classList.add("visible");
+      const audio = document.getElementById("correctSound");
+      audio.currentTime = 0;
+      audio.play();
 
-        // SPECIAL CASE: FINAL RIDDLE
-        if (num === 6) {
-            // Show tick  correct sound
-            rightMark.classList.add("visible");
-            const audio = document.getElementById("correctSound");
-            audio.currentTime = 0;
-            audio.play();
+      // Change finger cursor
+      document.body.classList.add("fingerCursor");
 
-            // Start ring chase
-            startRingChase();
+      // Start ring chase
+      startRingChase();
 
-            return;
-        }
-
-        // Otherwise reveal next riddle
-        const next = document.getElementById(`riddle${num + 1}`);
-        if (next) {
-            next.classList.remove("hidden");
-        }
-
-    } else {
-        // Wrong answer
-        const audio = document.getElementById("wrongSound");
-        audio.currentTime = 0;
-        audio.play();
-
-        wrongMark.classList.add("visible");
+      return;
     }
+
+    // Show correct green tick
+    rightMark.classList.add("visible");
+
+    // Play correct sound
+    const audio = document.getElementById("correctSound");
+    audio.currentTime = 0;
+    audio.play();
+
+    // Otherwise reveal next riddle
+    const next = document.getElementById(`riddle${num + 1}`);
+    if (next) {
+      next.classList.remove("hidden");
+    }
+
+    }
+  else {
+    // Wrong answer
+    const audio = document.getElementById("wrongSound");
+    audio.currentTime = 0;
+    audio.play();
+
+    wrongMark.classList.add("visible");
+  }
 }
 
 // RING CHASE
+// this below was copied and pasted and I need to understand it
+function startRingChase() {
+  console.log("ring chase has begun!");
+  const ring = document.getElementById("theOneRing");
+  const container = document.getElementById("ringChaseContainer");
+
+  let ringX = window.innerWidth / 2;
+  let ringY = window.innerHeight / 2;
+
+  let cursorX = null;
+  let cursorY = null;
+
+  // Velocity components (new)
+  let vx = 0;
+  let vy = 0;
+
+  // Acceleration
+  let acceleration = 0.1;
+  let caught = false;
+
+  // Track cursor position
+  document.addEventListener("mousemove", (e) => {
+    cursorX = e.clientX;
+    cursorY = e.clientY;
+  });
+
+  function animate() {
+    // Waits until we have a real cursor position
+    if (cursorX === null || cursorY === null) {
+      requestAnimationFrame(animate);
+      return;
+    }
+
+    const dx = cursorX - ringX;
+    const dy = cursorY - ringY;
+    const distance = Math.hypot(dx, dy);
+
+    // COLLISION CHECK
+    if (distance < 40) {
+      console.log("COLLISION! The ring has caught the cursor.");
+      caught = true;
+      vx = 0;
+      vy = 0;
+      document.body.style.cursor = "none";
+      return; // stop animation loop
+    }
+
+    if (distance > 1) {
+      // Normalised direction
+      const ux = dx / distance;
+      const uy = dy / distance;
+
+      // Increase acceleration over time
+      acceleration += 0.002;   // ← tweak this number for more/less chaos
+
+      // Accelerate toward cursor
+      vx += ux * acceleration;
+      vy += uy * acceleration;
+
+      // Apply velocity
+      ringX += vx;
+      ringY += vy;
+    }
+
+    ring.style.left = ringX + "px";
+    ring.style.top = ringY + "px";
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+// RING COLLISION - CHASE END
+
 
 // SAURON JUMPSCARE
 
@@ -149,11 +230,15 @@ function applyCipherToPage() {
 // 1) After 10 seconds → turn on glitch font
 setTimeout(() => {
     document.body.classList.add("glitchMode");
-}, 10000); // 10,000 milliseconds = 10 seconds
+
+    const audio = document.getElementById("glitchNoise");
+    audio.currentTime = 0;
+    audio.play();
+}, 7000); // 7,000 milliseconds = 7 seconds
 
 
 // 2) After 15 seconds → turn off glitch font + apply cipher
 setTimeout(() => {
     document.body.classList.remove("glitchMode");
     applyCipherToPage(); // we will write this function next
-}, 15000); // 15,000 milliseconds = 15 seconds
+}, 8000); 
