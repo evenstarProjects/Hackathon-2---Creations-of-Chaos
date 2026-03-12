@@ -16,10 +16,33 @@ body {
     background-color: rgb(219, 252, 252);
     /* FONTS */
     font-size: 1.25rem;
-    font-family: "Special Elite", sans-serif;
+    font-family: "Special Elite", serif;
     color: rgb(61, 63, 65);
 }
 
+/*Font change*/
+/* When this class is on <body>, everything uses the glitch font */
+.glitchMode {
+    font-family: 'Rubik Glitch', cursive;
+}
+
+.glitchMode *:not(.carouselDialog):not(.carouselDialog *) {
+    animation: vibrate 0.15s infinite;
+}
+
+/* The dialog must always stay readable, even during glitch mode */
+.carouselDialog {
+    font-family: 'Special Elite', serif !important;
+}
+
+@keyframes vibrate {
+    0%   { transform: translate(0, 0); }
+    20%  { transform: translate(-1px, 0.3px); }
+    40%  { transform: translate(1px, -0.3px); }
+    60%  { transform: translate(-0.7px, 0.2px); }
+    80%  { transform: translate(0.7px, -0.2px); }
+    100% { transform: translate(0, 0); }
+}
 
 /* ----- ELEMENT FORMATTING ----- */
 img, picture, video, canvas, svg, iframe {

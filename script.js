@@ -90,7 +90,11 @@ function checkRiddle(num) {
     }
 }
 
-// CIPHERING OF KEYS
+// RING CHASE
+
+// SAURON JUMPSCARE
+
+// CIPHERING MAP
 const cipher = {
   A: "C", B: "H", C: "A", D: "O", E: "S", F: "B",
   G: "D", H: "E", I: "F", J: "G", K: "I", L: "J",
@@ -104,6 +108,52 @@ const cipher = {
   y: "y", z: "z"
 };
 
-// RING CHASE
+// CI)HER A SINGLE STRING
+function cipherString(str) {
+    let result = "";
+    for (let char of str) {
+        // If the character exists in the cipher map, use it. Else, keep the character as-is.
+        result += cipher[char] || char;
+    }
+    return result;
+}
 
-// SAURON JUMPSCARE
+// APPLY CIPHER TO ALL TEXT NODES EXCEPT THE DIALOG
+function applyCipherToPage() {
+    const dialog = document.querySelector(".carouselDialog");
+
+    // Recursive function to walk through the DOM
+    function walk(node) {
+        // If this node is inside the dialog, skip it entirely
+        if (dialog.contains(node)) return;
+
+        // If this is a text node, cipher its content
+        if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent = cipherString(node.textContent);
+        }
+
+        // Otherwise, keep walking through its children
+        node = node.firstChild;
+        while (node) {
+            walk(node);
+            node = node.nextSibling;
+        }
+    }
+
+    // Start walking from the body
+    walk(document.body);
+}
+
+// TIMING LOGIC FOR GLITCH AND CYPHER SEQUENCE
+
+// 1) After 10 seconds → turn on glitch font
+setTimeout(() => {
+    document.body.classList.add("glitchMode");
+}, 10000); // 10,000 milliseconds = 10 seconds
+
+
+// 2) After 15 seconds → turn off glitch font + apply cipher
+setTimeout(() => {
+    document.body.classList.remove("glitchMode");
+    applyCipherToPage(); // we will write this function next
+}, 15000); // 15,000 milliseconds = 15 seconds
