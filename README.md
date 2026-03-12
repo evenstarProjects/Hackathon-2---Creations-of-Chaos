@@ -15,7 +15,7 @@ To-Do List
 2. Solve The Hobbit riddles and type in the correct answer (make it timed?)
 3. Sort/drag and drop the images into “chaos” and “not chaos” pairs (e.g. tv poster of Kaos goes into Chaos, tv poster of Jurassic Park goes into Not Chaos). The pairs will be in themes, e.g. a pair of films, a pair of games, a pair of books, a pair of paintings etc. where one is chaotic and one isn’t (e.g. a jackson pollock painting and a very angular OCD painting).
 
-4. ### The Hobbit Riddles:
+### The Hobbit Riddles:
 - What has roots as nobody sees, Is taller than trees Up, up, up it goes, And yet never grows?
     **Answer:** Mountain
 - Thirty white horses on a red hill, First they champ, Then they stamp, Then they stand still.
