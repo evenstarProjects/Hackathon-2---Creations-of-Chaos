@@ -180,6 +180,9 @@ function startRingChase() {
   // Start the whisper sequence
   startChaseAudio();
 
+  //Show the red warning line
+  document.getElementById("ringWarning").style.display = "block";
+
   let ringX = window.innerWidth / 2;
   let ringY = window.innerHeight / 2;
 
@@ -222,6 +225,7 @@ function startRingChase() {
 
       // Stop all chase audio"
       stopChaseAudio();
+      document.getElementById("ringWarning").style.display = "none";
       playFinalRingAudio();
       return; // stop animation loop
     }
@@ -284,11 +288,16 @@ function cipherString(str) {
 // APPLY CIPHER TO ALL TEXT NODES EXCEPT THE DIALOG
 function applyCipherToPage() {
     const dialog = document.querySelector(".carouselDialog");
+    const ringWarning = document.querySelector(".dontCode");
 
     // Recursive function to walk through the DOM
     function walk(node) {
         // If this node is inside the dialog, skip it entirely
         if (dialog.contains(node)) return;
+
+        // If this node is inside the ringWarning, skip it entirely
+        if (ringWarning.contains(node)) return;
+
 
         // If this is a text node, cipher its content
         if (node.nodeType === Node.TEXT_NODE) {
